@@ -1,0 +1,23 @@
+from selenium.webdriver.common.by import By
+
+class Order:
+    order_button_at_the_top_of_the_page = (By.XPATH, "//button[@class='Button_Button__ra12g' and text()='Заказать']")
+    order_button_in_the_middle_of_the_page = (By.XPATH, "//button[@class='Button_Button__ra12g Button_Middle__1CSJM' and text()='Заказать']")
+    field_name = (By.XPATH, ".//input[@placeholder='* Имя']")
+    last_name_field = (By.XPATH, ".//input[@placeholder='* Фамилия']")
+    address_field = (By.XPATH, ".//input[@placeholder='* Адрес: куда привезти заказ']")
+    field_metro_station = (By.XPATH, ".//input[@placeholder='* Станция метро']")
+    metro_station_1 = (By.XPATH, "//div[contains(text(),'Черкизовская')]")
+    phone_field = (By.XPATH, ".//input[@placeholder='* Телефон: на него позвонит курьер']")
+    field_when_to_bring_scooter = (By.XPATH, ".//input[@placeholder='* Когда привезти самокат']")
+    date = (By.XPATH, ".//div[@aria-label='Choose четверг, 15-е мая 2025 г.']")
+    rental_period_field = (By.XPATH, "//span[contains(@class, 'Dropdown-arrow')]")
+    rental_period = (By.XPATH, "//div[text()='двое суток']")
+    scooter_color_field = (By.XPATH, ".//div[@class='Order_Title__3EKne' and text()='Цвет самоката']")
+    scooter_color_black = (By.XPATH, ".//label[contains(@class, 'Checkbox_Label__3wxSf') and contains(text(), 'чёрный жемчуг')]")
+    comment_field = (By.XPATH, ".//input[@placeholder='Комментарий для курьера']")
+    next_button = (By.XPATH, ".//button[@class='Button_Button__ra12g Button_Middle__1CSJM' and text()='Далее']")
+    order_button = (By.XPATH, "//button[@class='Button_Button__ra12g Button_Middle__1CSJM' and text()='Заказать']")
+    confirmation_window = (By.XPATH, ".//div[@class='Order_ModalHeader__3FDaJ' and contains(text(), 'Хотите оформить заказ?')]")
+    yes_button = (By.XPATH, ".//button[contains(@class, 'Button_Button__ra12g') and text()='Да']")
+    completed_order_window = (By.XPATH, ".//div[@class='Order_ModalHeader__3FDaJ' and contains(text(), 'Заказ оформлен')]")
