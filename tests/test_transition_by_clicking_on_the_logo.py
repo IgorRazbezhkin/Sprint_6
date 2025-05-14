@@ -2,6 +2,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 from pages.pages_transition_by_clicking_on_the_logo import LogoPage
 import urls
+from helpers import get_new_window_handle
 
 
 class TestLogoClicking:
@@ -25,7 +26,7 @@ class TestLogoClicking:
 
         WebDriverWait(browser, 5).until(expected_conditions.new_window_is_opened([initial_window]))
 
-        new_window = [window for window in browser.window_handles if window != initial_window][0]
+        new_window = get_new_window_handle(browser, initial_window)
         browser.switch_to.window(new_window)
 
         WebDriverWait(browser, 10).until(expected_conditions.url_contains(urls.dzen))
