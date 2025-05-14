@@ -31,6 +31,3 @@ class TestLogoClicking:
 
         current_url = browser.current_url
         assert current_url == "https://dzen.ru/?yredirect=true", f"Expected URL to be 'https://dzen.ru/?yredirect=true', but got '{current_url}'"
-
-        browser.close()
-        browser.switch_to.window(initial_window)
