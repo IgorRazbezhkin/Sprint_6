@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
 
+
 class Order:
     order_button_at_the_top_of_the_page = (By.XPATH, "//button[@class='Button_Button__ra12g' and text()='Заказать']")
     order_button_in_the_middle_of_the_page = (By.XPATH, "//button[@class='Button_Button__ra12g Button_Middle__1CSJM' and text()='Заказать']")

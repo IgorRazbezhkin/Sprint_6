@@ -1,7 +1,5 @@
 import pytest
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions
-from pages.pages_faq import FaqPage
+from pages.faq_page import FaqPage
 from locators.faq import Faq
 
 
@@ -18,15 +16,9 @@ from locators.faq import Faq
 def test_faq_questions(browser, question_locator, text_locator):
     faq_page = FaqPage(browser)
 
-    WebDriverWait(browser, 5).until(expected_conditions.visibility_of_element_located(Faq.table_of_contents_text))
-
     faq_page.scroll_to_faq()
 
-    WebDriverWait(browser, 5).until(expected_conditions.element_to_be_clickable(question_locator))
-
     faq_page.click_question(question_locator)
-
-    WebDriverWait(browser, 5).until(expected_conditions.visibility_of_element_located(text_locator))
 
     answer_text = faq_page.get_answer_text(text_locator)
 

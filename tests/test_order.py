@@ -1,4 +1,4 @@
-from pages.pages_order import OrderPage
+from pages.order_page import OrderPage
 from data import name_1, name_2, last_name_1, last_name_2, address_1, address_2, phone_1, phone_2, comment
 from locators.order import Order
 

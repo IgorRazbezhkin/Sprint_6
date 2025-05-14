@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
 
+
 class Faq:
     table_of_contents_text = (By.XPATH, ".//div[@class='Home_Header__iJKdX' and contains(text(), 'Самокат')]")
     faq_header_locator = (By.XPATH, ".//div[@class='Home_SubHeader__zwi_E' and text()='Вопросы о важном']")

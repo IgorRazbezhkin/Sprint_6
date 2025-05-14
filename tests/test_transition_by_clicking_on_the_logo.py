@@ -1,6 +1,4 @@
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions
-from pages.pages_transition_by_clicking_on_the_logo import LogoPage
+from pages.transition_by_clicking_on_the_logo_page import LogoPage
 import urls
 from helpers import get_new_window_handle
 
@@ -24,12 +22,11 @@ class TestLogoClicking:
 
         logo_page.click_yandex_logo()
 
-        WebDriverWait(browser, 5).until(expected_conditions.new_window_is_opened([initial_window]))
-
         new_window = get_new_window_handle(browser, initial_window)
         browser.switch_to.window(new_window)
 
-        WebDriverWait(browser, 10).until(expected_conditions.url_contains(urls.dzen))
+        logo_page.wait_for_new_window(initial_window)
+        logo_page.wait_for_url(urls.dzen)
 
         current_url = browser.current_url
         assert current_url == urls.dzen, f"Expected URL to be '{urls.dzen}', but got '{current_url}'"
