@@ -1,6 +1,7 @@
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 from pages.pages_transition_by_clicking_on_the_logo import LogoPage
+import urls
 
 
 class TestLogoClicking:
@@ -13,7 +14,7 @@ class TestLogoClicking:
         order_page.click_scooter_logo()
 
         current_url = browser.current_url
-        assert current_url == "https://qa-scooter.praktikum-services.ru/", f"Expected URL to be 'https://qa-scooter.praktikum-services.ru/', but got '{current_url}'"
+        assert current_url == urls.base_url + urls.home_page, f"Expected URL to be '{urls.base_url + urls.home_page}', but got '{current_url}'"
 
     def test_yandex_logo_opens_in_new_tab_dzen_open(self, browser):
         logo_page = LogoPage(browser)
@@ -27,7 +28,7 @@ class TestLogoClicking:
         new_window = [window for window in browser.window_handles if window != initial_window][0]
         browser.switch_to.window(new_window)
 
-        WebDriverWait(browser, 10).until(expected_conditions.url_contains("https://dzen.ru/?yredirect=true"))
+        WebDriverWait(browser, 10).until(expected_conditions.url_contains(urls.dzen))
 
         current_url = browser.current_url
-        assert current_url == "https://dzen.ru/?yredirect=true", f"Expected URL to be 'https://dzen.ru/?yredirect=true', but got '{current_url}'"
+        assert current_url == urls.dzen, f"Expected URL to be '{urls.dzen}', but got '{current_url}'"
