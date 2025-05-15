@@ -3,7 +3,7 @@ from data import name_1, name_2, last_name_1, last_name_2, address_1, address_2,
 from locators.order import Order
 
 
-class TestOrderPage:
+class TestOrder:
 
     def test_create_first_order_the_order_has_been_placed(self, browser):
 
