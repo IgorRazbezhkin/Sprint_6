@@ -10,3 +10,6 @@ class LogoPage(BasePage):
 
     def click_scooter_logo(self):
         self.click_element(Logo.logo_scooter)
+
+    def click_yandex_logo(self):
+        self.click_element(Logo.yandex_logo)

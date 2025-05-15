@@ -1,6 +1,5 @@
-from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions
-from locators.transition_by_clicking_on_the_logo import Logo
+from selenium.webdriver.support.ui import WebDriverWait
 
 
 class BasePage:
@@ -27,17 +26,12 @@ class BasePage:
     def scroll_to_bottom(self):
         self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 
-    def click_yandex_logo(self):
-        wait = WebDriverWait(self.driver, 5)
-        yandex_logo = wait.until(expected_conditions.element_to_be_clickable(Logo.yandex_logo))
-        yandex_logo.click()
-
     def wait_for_new_window(self, initial_window_handle, timeout=10):
-        WebDriverWait(self.driver, timeout).until(
+        self.wait.until(
             expected_conditions.new_window_is_opened([initial_window_handle])
         )
 
     def wait_for_url(self, expected_url, timeout=10):
-        WebDriverWait(self.driver, timeout).until(
+        self.wait.until(
             expected_conditions.url_to_be(expected_url)
         )
