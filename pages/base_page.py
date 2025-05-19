@@ -43,3 +43,7 @@ class BasePage:
         self.wait.until(
             expected_conditions.url_to_be(expected_url)
         )
+
+    @step("Получить текущий URL")
+    def get_current_url(self):
+        return self.driver.current_url
