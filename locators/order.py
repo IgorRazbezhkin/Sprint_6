@@ -8,7 +8,7 @@ class Order:
     last_name_field = (By.XPATH, ".//input[@placeholder='* Фамилия']")
     address_field = (By.XPATH, ".//input[@placeholder='* Адрес: куда привезти заказ']")
     field_metro_station = (By.XPATH, ".//input[@placeholder='* Станция метро']")
-    metro_station_1 = (By.XPATH, "//div[contains(text(),'Черкизовская')]")
+    metro_station = (By.XPATH, "//div[contains(text(),'Черкизовская')]")
     phone_field = (By.XPATH, ".//input[@placeholder='* Телефон: на него позвонит курьер']")
     field_when_to_bring_scooter = (By.XPATH, ".//input[@placeholder='* Когда привезти самокат']")
     date = (By.XPATH, ".//div[@aria-label='Choose четверг, 15-е мая 2025 г.']")

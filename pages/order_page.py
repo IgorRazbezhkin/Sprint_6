@@ -11,24 +11,28 @@ class OrderPage(BasePage):
 
     @step("Заполнить имя: {name}")
     def fill_name(self, name):
-        self.find_element(Order.field_name).send_keys(name)
+        element = self.find_element(Order.field_name)
+        element.send_keys(name)
 
     @step("Заполнить фамилию: {last_name}")
     def fill_last_name(self, last_name):
-        self.find_element(Order.last_name_field).send_keys(last_name)
+        element = self.find_element(Order.last_name_field)
+        element.send_keys(last_name)
 
     @step("Заполнить адрес: {address}")
     def fill_address(self, address):
-        self.find_element(Order.address_field).send_keys(address)
+        element = self.find_element(Order.address_field)
+        element.send_keys(address)
 
     @step("Выбрать станцию метро")
     def select_metro_station(self):
         self.click_element(Order.field_metro_station)
-        self.click_element(Order.metro_station_1)
+        self.click_element(Order.metro_station)
 
     @step("Заполнить номер телефона: {phone}")
     def fill_phone(self, phone):
-        self.find_element(Order.phone_field).send_keys(phone)
+        element = self.find_element(Order.phone_field)
+        element.send_keys(phone)
 
     @step("Кликнуть кнопку 'Далее'")
     def click_next_button(self):
@@ -62,3 +66,11 @@ class OrderPage(BasePage):
     @step("Подтвердить заказ (нажать 'Да')")
     def confirm_order(self):
         self.click_element(Order.yes_button)
+
+    @step("Кликнуть по кнопке 'Заказать' в середине страницы страницы")
+    def click_order_button_in_middle(self):
+        self.click_element(Order.order_button_in_the_middle_of_the_page)
+
+    @step("Получить текст подтверждения заказа")
+    def get_confirmation_message(self):
+        return self.get_element_text(Order.completed_order_window)

@@ -1,6 +1,5 @@
 from pages.order_page import OrderPage
 from data import name_1, name_2, last_name_1, last_name_2, address_1, address_2, phone_1, phone_2, comment
-from locators.order import Order
 
 
 class TestOrder:
@@ -28,14 +27,14 @@ class TestOrder:
 
         order_page.confirm_order()
 
-        confirmation_message = browser.find_element(*Order.completed_order_window).text
+        confirmation_message = order_page.get_confirmation_message()
         assert "Заказ оформлен" in confirmation_message
 
     def test_create_second_order_the_order_has_been_placed(self, browser):
         order_page = OrderPage(browser)
 
         order_page.scroll_to_bottom()
-        order_page.driver.find_element(*Order.order_button_in_the_middle_of_the_page).click()
+        order_page.click_order_button_in_middle()
 
         order_page.fill_name(name_2)
         order_page.fill_last_name(last_name_2)
@@ -54,5 +53,5 @@ class TestOrder:
 
         order_page.confirm_order()
 
-        confirmation_message = browser.find_element(*Order.completed_order_window).text
+        confirmation_message = order_page.get_confirmation_message()
         assert "Заказ оформлен" in confirmation_message
