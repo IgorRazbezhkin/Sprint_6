@@ -1,6 +1,5 @@
 from pages.transition_by_clicking_on_the_logo_page import LogoPage
 import urls
-from helpers import get_new_window_handle
 
 
 class TestLogoClicking:
@@ -18,14 +17,11 @@ class TestLogoClicking:
     def test_yandex_logo_opens_in_new_tab_dzen_open(self, browser):
         logo_page = LogoPage(browser)
 
-        initial_window = browser.current_window_handle
-
         logo_page.click_yandex_logo()
 
-        new_window = get_new_window_handle(browser, initial_window)
-        browser.switch_to.window(new_window)
-
+        initial_window = logo_page.get_current_window_handle()
         logo_page.wait_for_new_window(initial_window)
+
         logo_page.wait_for_url(urls.dzen)
 
         current_url = logo_page.get_current_url()
